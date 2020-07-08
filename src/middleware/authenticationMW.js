@@ -7,7 +7,7 @@ const auth = async (req, res, next) => {
     // Create token from auth headers
     const token = req.header("Authorization").replace("Bearer ", "");
     // Verify token from auth headers
-    const decoded = jwt.verify(token, "secretToken");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     // Fetch user based on id stored in token payload
     const user = await User.findOne({
       _id: decoded._id,
