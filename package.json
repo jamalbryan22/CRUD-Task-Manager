@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
-    "start": "node src/index.js",
+    "start": "concurrently \"yarn start-client\" \"yarn start-server\"",
+    "start-server": "node server/index.js",
+    "start-client": "cd client && yarn start",
     "test": "env-cmd -f ./config/test.env jest --watch"
   },
   "keywords": [],
@@ -15,6 +17,7 @@
     "@sendgrid/mail": "^7.2.1",
     "bcrypt": "^5.0.0",
     "chalk": "^4.1.0",
+    "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
