@@ -35,13 +35,14 @@ function LoginForm() {
     .then((res) => console.log(res))
     .catch(e => console.log(e));
   } else {
+    console.log("in sign up")
       formData = {
         name:Username,
         email:Email,
         password:Password,
         age:Age
       }
-
+      console.log(`The form data is ${formData.Username}  ${formData.email}  ${formData.password}  ${formData.age}`);
       axios.post('https://bryan-task-manager.herokuapp.com/users', formData)
       .then((res) => console.log(res))
       .catch((e) => console.log(e))
