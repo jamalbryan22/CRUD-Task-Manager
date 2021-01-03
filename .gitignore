@@ -4,3 +4,4 @@ config
 µ≤
 client/node_modules
 client/.eslintcache
+client/build
