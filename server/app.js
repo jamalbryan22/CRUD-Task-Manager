@@ -10,7 +10,6 @@ const app = express();
 
 // Run Middleware
 const buildPath = path.join(__dirname, "..", "client", "build");
-console.log(`The public path is ${buildPath}`);
 app.use(express.static(buildPath));
 app.use(express.json());
 app.use(userRouter);

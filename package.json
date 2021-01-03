@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
-    "start": "concurrently \"yarn start-client\" \"yarn start-server\"",
+    "start": "cd client && yarn start",
     "start-server": "node server/index.js",
     "start-dev-server": "nodemon server/index.js",
     "start-client": "cd client && yarn start",
