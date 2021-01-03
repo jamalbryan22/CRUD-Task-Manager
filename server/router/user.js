@@ -33,7 +33,7 @@ router.post("/users", async (req, res) => {
     res.status(201).send({ user, token });
   } catch (error) {
     // Throw any necessary errors
-    res.send(400).send(e);
+    res.status(400).send(e);
   }
 });
 
@@ -65,7 +65,7 @@ router.post("/users/logout", auth, async (req, res) => {
     res.send();
   } catch (error) {
     // Throw any necessary errors
-    res.send(500).send(e);
+    res.status(500).send(e);
   }
 });
 
@@ -117,7 +117,7 @@ router.delete("/users/me", auth, async (req, res) => {
     res.send(req.user);
   } catch (e) {
     // Thrown any necessary errors
-    return res.send(500).send();
+    return res.status(500).send();
   }
 });
 
