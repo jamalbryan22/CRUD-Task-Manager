@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "start": "concurrently \"yarn start-client\" \"yarn start-server\"",
-    "start-server": "node server/index.js",
+    "start-server": "node index.js",
     "start-dev-server": "nodemon server/index.js",
     "start-client": "cd client && yarn start",
     "test": "env-cmd -f ./config/test.env jest --watch"

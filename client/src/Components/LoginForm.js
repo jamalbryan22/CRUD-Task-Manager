@@ -59,11 +59,11 @@ function LoginForm() {
       </div>
       <div className="form-group">
       <label>Email</label>
-      <input value={Email} onChange={(e)=>{setEmail(e.target.value)}}/>
+      <input value={Email} onChange={(e)=>{setEmail(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
       <label>Password</label>
-      <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}}/>
+      <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
       <button className="formSubmitButton">Submit</button>
      </form>
@@ -79,19 +79,19 @@ function LoginForm() {
       </div>
       <div className="form-group">
       <label>Username</label>
-      <input value={Username} onChange={(e)=>{setUsername(e.target.value)}}/>
+      <input value={Username} onChange={(e)=>{setUsername(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
       <label>Password</label>
-      <input value={Password} onChange={(e)=>{setPassword(e.target.value)}}/>
+      <input value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
       <label>Email</label>
-      <input value={Email} onChange={(e)=>{setEmail(e.target.value)}}/>
+      <input value={Email} onChange={(e)=>{setEmail(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
       <label>Age</label>
-      <input value={Age} onChange={(e)=>{setAge(e.target.value)}}/>
+      <input value={Age} onChange={(e)=>{setAge(e.target.value)}} autoComplete="on"/>
       </div>
       <button type="submit" className="formSubmitButton">Submit</button>
      </form>
