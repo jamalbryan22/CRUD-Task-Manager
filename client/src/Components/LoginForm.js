@@ -33,19 +33,17 @@ function LoginForm() {
     .then((res) => console.log(res))
     .catch(e => console.log(e));
   } else {
-    console.log("in sign up")
+    console.log("im signing up")
       formData = {
         name:Username,
         email:Email,
         password:Password,
         age:Age
       }
-      console.log(`The form data is ${formData.Username}  ${formData.email}  ${formData.password}  ${formData.age}`);
       axios.post('https://bryan-task-manager.herokuapp.com/users', formData)
       .then((res) => console.log(res))
-      .catch((e) => console.log(e))
+      .catch(e => console.log(e))
     }
-    console.log(formData);
   }
 
   if(LoggingIn){
@@ -71,7 +69,7 @@ function LoginForm() {
   }else{
     return (
       <>
-      <form className="form">
+      <form onSubmit={formSubmit} className="form">
        <div className="form-selector-button">
         <button type="button" className="LoginStateButton" onClick={(e)=>signingUp(e)}>Sign Up</button>
         <button type="button" className="LoginStateButton" onClick={(e)=>loggingIn(e)}>Log In</button>
