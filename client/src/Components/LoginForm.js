@@ -23,7 +23,7 @@ function LoginForm() {
     e.preventDefault();
     let formData = {};
     
-    if(loggingIn) {
+    if(LoggingIn) {
       formData = {
         email:Email,
         password:Password
