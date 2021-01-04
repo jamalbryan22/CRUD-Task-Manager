@@ -10,12 +10,12 @@ function LoginForm() {
 
   const signingUp = (e) => {
     setLoggingIn(false);
-    // e.preventDefault();
+    e.preventDefault();
   }
 
   const loggingIn = (e) => {
     setLoggingIn(true);
-    // e.preventDefault();
+    e.preventDefault();
   }
 
   const formSubmit = (e) => {
