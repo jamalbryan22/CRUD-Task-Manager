@@ -9,10 +9,8 @@ function LoginForm() {
   const [LoggingIn, setLoggingIn] = useState(true)
 
   const signingUp = (e) => {
-    if(loggingIn){
-      setLoggingIn(false);
-    }
-    e.preventDefault();
+    setLoggingIn(false);
+    // e.preventDefault();
   }
 
   const loggingIn = (e) => {
@@ -56,7 +54,7 @@ function LoginForm() {
       <form onSubmit={formSubmit} className="form">
        <div className="form-selector-button">
         <button type="button" className="LoginStateButton" onClick={(e)=>signingUp(e)}>Sign Up</button>
-        <button type="button" className="LoginStateButton"onClick={(e)=>loggingIn(e)}>Log In</button>
+        <button type="button" className="LoginStateButton" onClick={(e)=>loggingIn(e)}>Log In</button>
       </div>
       <div className="form-group">
       <label>Email</label>
@@ -76,7 +74,7 @@ function LoginForm() {
       <form className="form">
        <div className="form-selector-button">
         <button type="button" className="LoginStateButton" onClick={(e)=>signingUp(e)}>Sign Up</button>
-        <button type="button" className="LoginStateButton"onClick={(e)=>loggingIn(e)}>Log In</button>
+        <button type="button" className="LoginStateButton" onClick={(e)=>loggingIn(e)}>Log In</button>
       </div>
       <div className="form-group">
       <label>Username</label>
