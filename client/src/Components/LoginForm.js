@@ -32,17 +32,19 @@ function LoginForm() {
     axios.post('https://bryan-task-manager.herokuapp.com/users/login', formData)
     .then((res) => console.log(res))
     .catch(e => console.log(e));
+    
   } else {
-    console.log("im signing up")
+
       formData = {
         name:Username,
         email:Email,
         password:Password,
         age:Age
       }
+
       axios.post('https://bryan-task-manager.herokuapp.com/users', formData)
       .then((res) => console.log(res))
-      .catch(e => console.log(e))
+      .catch(e => console.log(e));
     }
   }
 
@@ -80,7 +82,7 @@ function LoginForm() {
       </div>
       <div className="form-group">
       <label>Password</label>
-      <input value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
+      <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
       <label>Email</label>
