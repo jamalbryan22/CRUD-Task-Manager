@@ -62,7 +62,7 @@ function LoginForm() {
       <label>Password</label>
       <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
-      <button className="formSubmitButton">Submit</button>
+      <button type="submit" className="formSubmitButton">Submit</button>
      </form>
       </>
     )
