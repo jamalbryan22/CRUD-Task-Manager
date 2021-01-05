@@ -1,5 +1,6 @@
+import React,{useState} from 'react';
 import axios from 'axios';
-import React,{useState} from 'react'
+
 
 function LoginForm() {
   const [Username, setUsername] = useState('');
@@ -10,12 +11,10 @@ function LoginForm() {
 
   const signingUp = (e) => {
     setLoggingIn(false);
-    e.preventDefault();
   }
 
   const loggingIn = (e) => {
     setLoggingIn(true);
-    e.preventDefault();
   }
 
   const formSubmit = (e) => {
@@ -32,7 +31,7 @@ function LoginForm() {
     axios.post('https://bryan-task-manager.herokuapp.com/users/login', formData)
     .then((res) => console.log(res))
     .catch(e => console.log(e));
-    
+
   } else {
 
       formData = {
@@ -64,7 +63,7 @@ function LoginForm() {
       <label>Password</label>
       <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
-      <button type="submit" className="formSubmitButton">Submit</button>
+      <button className="formSubmitButton">Submit</button>
      </form>
       </>
     )
@@ -92,7 +91,7 @@ function LoginForm() {
       <label>Age</label>
       <input value={Age} onChange={(e)=>{setAge(e.target.value)}} autoComplete="on"/>
       </div>
-      <button type="submit" className="formSubmitButton">Submit</button>
+      <button className="formSubmitButton">Submit</button>
      </form>
       </>
     )
