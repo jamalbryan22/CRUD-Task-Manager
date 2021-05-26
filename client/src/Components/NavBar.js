@@ -1,23 +1,14 @@
 import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import axios from 'axios'
-  import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 function NavBar() {
 
   let history = useHistory();
 
-
   const logout = () => {
-  //   axios.post('http://localhost:3008/users/logout', {withCredentials:true})
-  //   .then(() => {
-  //    history.push("/");
-  //   })
-  //  .catch(e => console.log(e));
-
     history.push("/");
-
   }
 
   const navBarItemStyle = {

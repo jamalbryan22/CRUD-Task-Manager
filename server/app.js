@@ -9,12 +9,13 @@ const taskRouter = require("./router/task");
 const app = express();
 
 // Run Middleware
+app.use(cors());
 const buildPath = path.join(__dirname, "..", "client", "build");
 app.use(express.static(buildPath));
 app.use(express.json());
 app.use(userRouter);
 app.use(taskRouter);
-app.use(cors());
+
 
 module.exports = app;
 

@@ -1,4 +1,4 @@
-import {React, useState, useEffect, useContext} from 'react';
+import {React, useState, useContext} from 'react';
 import axios from 'axios';
 import {TextField, Button, Typography,} from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -21,15 +21,6 @@ function NewTaskCard() {
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const user = useContext(UserContext);
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:3008/tasks', { withCredentials: true })
-  //   .then(res => {
-  //     user.setTaskStore(res.data)
-  //   })
-  //   .catch(error => console.log(`from get request: ${error}`))
-  // },[])
-  
   
   const formSubmit = async (e) => {
 

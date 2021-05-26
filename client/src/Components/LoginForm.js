@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 
@@ -7,16 +7,8 @@ function LoginForm() {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
   const [Age, setAge] = useState('');
-  const [LoggingIn, setLoggingIn] = useState(true)
-  const [UserData, setUserData] = useState({})
-
-
-  // useEffect(() => {
-  //   console.log(`From User Effect: User name = ${UserData.name}`);
-  //   console.log(`From User Effect: User email = ${UserData.email}`);
-  //   console.log(`From User Effect: User age = ${UserData.age}`);
-  //   console.log(`From User Effect: User password = ${UserData.password}`);
-  // }, [UserData])
+  const [LoggingIn, setLoggingIn] = useState(true);
+  const [UserData, setUserData] = useState({});
 
   let history = useHistory();
 

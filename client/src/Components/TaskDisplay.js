@@ -1,23 +1,14 @@
 import {React, useContext, useEffect, useState} from 'react';
 import {UserContext} from './contextComponents/UserContext'
 import axios from 'axios'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import PlayArrowOutlinedIcon from '@material-ui/icons/PlayArrowOutlined';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import TaskDisplayHeader from './TaskDisplayHeader';
-import { FormHelperText } from '@material-ui/core';
 import {useMediaQuery} from 'react-responsive';
 
-function TaskDisplay(props) {
+function TaskDisplay() {
 
   const user = useContext(UserContext);
   const [task, setTask] = useState({});
