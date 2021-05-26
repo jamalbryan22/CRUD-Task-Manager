@@ -66,7 +66,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Create psuedo task field to populate 
+// Create pseudo task field to populate 
 // Each users task from the task collection
 userSchema.virtual("tasks", {
   ref: "Task",

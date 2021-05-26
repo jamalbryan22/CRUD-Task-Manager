@@ -5,6 +5,7 @@ const auth = require("../middleware/authenticationMW");
 const multer = require("multer");
 const { red } = require("chalk");
 const sharp = require("sharp");
+
 // Define the profile picture requirements
 const avatar = multer({
   limits: {
@@ -29,6 +30,9 @@ router.post("/users", async (req, res) => {
     await user.save();
     // Create a token for the new user
     const token = await user.generateAuthToken();
+    // Set session cookies
+    res.cookie("auth_token", token, { maxAge: 900000});
+    res.cookie("user_id", user._id, { maxAge: 900000});
     // Send the newly created user and new authorization token back
     res.status(201).send({ user, token });
   } catch (error) {
@@ -44,6 +48,9 @@ router.post("/users/logoutALL", auth, async (req, res) => {
     req.user.tokens = [];
     // Save the updated user
     await req.user.save();
+    // Remove session cookie
+    res.clearCookie("auth_token");
+    res.clearCookie("user_id");
     // Send a 200 success status back
     res.send();
   } catch (error) {
@@ -61,6 +68,9 @@ router.post("/users/logout", auth, async (req, res) => {
     });
     // Update the user info
     await req.user.save();
+    // Remove session cookie
+    res.clearCookie("auth_token");
+    res.clearCookie("user_id");
     // Send the response back to the client
     res.send();
   } catch (error) {

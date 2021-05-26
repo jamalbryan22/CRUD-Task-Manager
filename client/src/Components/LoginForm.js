@@ -1,6 +1,6 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import axios from 'axios';
-
+import {useHistory} from 'react-router-dom'
 
 function LoginForm() {
   const [Username, setUsername] = useState('');
@@ -8,6 +8,17 @@ function LoginForm() {
   const [Password, setPassword] = useState('');
   const [Age, setAge] = useState('');
   const [LoggingIn, setLoggingIn] = useState(true)
+  const [UserData, setUserData] = useState({})
+
+
+  // useEffect(() => {
+  //   console.log(`From User Effect: User name = ${UserData.name}`);
+  //   console.log(`From User Effect: User email = ${UserData.email}`);
+  //   console.log(`From User Effect: User age = ${UserData.age}`);
+  //   console.log(`From User Effect: User password = ${UserData.password}`);
+  // }, [UserData])
+
+  let history = useHistory();
 
   const signingUp = (e) => {
     setLoggingIn(false);
@@ -17,7 +28,7 @@ function LoginForm() {
     setLoggingIn(true);
   }
 
-  const formSubmit = (e) => {
+  let formSubmit = async (e) => {
     
     e.preventDefault();
     let formData = {};
@@ -28,22 +39,34 @@ function LoginForm() {
         password:Password
       } 
 
-    axios.post('https://bryan-task-manager.herokuapp.com/users/login', formData)
-    .then((res) => console.log(res))
-    .catch(e => console.log(e));
+    axios.post('http://localhost:3008/users/login', formData, { withCredentials: true })
+    .then((res) => {
+       (setUserData(res.data.user));
+      history.push("/dashboard", {Username, UserData});
+    }).catch(e => alert("There was an error logging in, please verify your credentials"));
+    
+     
+    } else {
 
-  } else {
-
-      formData = {
-        name:Username,
-        email:Email,
-        password:Password,
-        age:Age
+      if(Password.length < 8){
+        alert("Please choose a password that is at least 8 characters")
+        return
       }
 
-      axios.post('https://bryan-task-manager.herokuapp.com/users', formData)
-      .then((res) => console.log(res))
-      .catch(e => console.log(e));
+    formData = {
+      name:Username,
+      password:Password,
+      email:Email,
+      age:Age
+    }
+
+    axios.post('http://localhost:3008/users', formData, { withCredentials: true })
+    .then((res) => {      
+      (setUserData(res.data.user))
+      console.log(res.data);    
+      history.push("/dashboard", {Username, UserData});
+    })
+    .catch(e => console.log(e));
     }
   }
 
@@ -56,18 +79,18 @@ function LoginForm() {
         <button type="button" className="LoginStateButton" onClick={(e)=>loggingIn(e)}>Log In</button>
       </div>
       <div className="form-group">
-      <label>Email</label>
-      <input value={Email} onChange={(e)=>{setEmail(e.target.value)}} autoComplete="on"/>
+        <label>Email</label>
+        <input type="email" value={Email} onChange={(e)=>{setEmail(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
-      <label>Password</label>
-      <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
+        <label>Password</label>
+        <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
       <button className="formSubmitButton">Submit</button>
      </form>
       </>
     )
-  }else{
+  } else {
     return (
       <>
       <form onSubmit={formSubmit} className="form">
@@ -76,27 +99,25 @@ function LoginForm() {
         <button type="button" className="LoginStateButton" onClick={(e)=>loggingIn(e)}>Log In</button>
       </div>
       <div className="form-group">
-      <label>Username</label>
-      <input value={Username} onChange={(e)=>{setUsername(e.target.value)}} autoComplete="on"/>
+        <label>Username</label>
+        <input value={Username} onChange={(e)=>{setUsername(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
-      <label>Password</label>
-      <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
+        <label>Password</label>
+        <input type="password" value={Password} onChange={(e)=>{setPassword(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
-      <label>Email</label>
-      <input value={Email} onChange={(e)=>{setEmail(e.target.value)}} autoComplete="on"/>
+        <label>Email</label>
+        <input value={Email} onChange={(e)=>{setEmail(e.target.value)}} autoComplete="on"/>
       </div>
       <div className="form-group">
-      <label>Age</label>
-      <input value={Age} onChange={(e)=>{setAge(e.target.value)}} autoComplete="on"/>
+        <label>Age</label>
+        <input value={Age} onChange={(e)=>{setAge(e.target.value)}} autoComplete="on"/>
       </div>
       <button className="formSubmitButton">Submit</button>
      </form>
       </>
     )
   }
-
 }
-
 export default LoginForm
