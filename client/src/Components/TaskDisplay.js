@@ -14,7 +14,7 @@ function TaskDisplay() {
   const [task, setTask] = useState({});
 
   useEffect(() => {
-    axios.get('http://localhost:3008/tasks', { withCredentials: true })
+    axios.get(`http://localhost:${process.env.PORT}/tasks`, { withCredentials: true })
     .then(res => {
       user.setTaskStore(res.data)
     })
@@ -71,13 +71,13 @@ function TaskDisplay() {
         data.completed = task.completed;
       }
     }
-     axios.patch(`http://localhost:3008/tasks/${task._id}`,{"completed":task.completed}, {withCredentials:true})
+     axios.patch(`http://localhost:${process.env.PORT}/tasks/${task._id}`,{"completed":task.completed}, {withCredentials:true})
      .then(setTask);
   }
 
   const deleteTask = (taskId)=>{
     user.setTaskStore(user.taskStore.filter(task => task._id !== taskId)) 
-    axios.delete(`http://localhost:3008/tasks/${taskId}`, {withCredentials:true})
+    axios.delete(`${user.port}/tasks/${taskId}`, {withCredentials:true})
   }
 
   console.log(taskStoreCopy);

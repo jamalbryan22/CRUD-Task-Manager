@@ -1,5 +1,4 @@
-import React, { createContext, useState } from "react";
-import {port} from ("../../../../server/index");
+import React, { createContext, useState } from 'react';
 
 export const UserContext = createContext();
 
@@ -14,7 +13,6 @@ export const UserProvider = ({ children }) => {
         userId, 
         setUserId,
         setTaskStore,
-        port
       }}
     >
       {children}

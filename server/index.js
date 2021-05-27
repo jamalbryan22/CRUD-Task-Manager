@@ -9,4 +9,4 @@ app.listen(port, () => {
   console.log(chalk.blue.inverse(`Listening on port ${port}`));
 });
 
-module.exports = port
+module.exports.port = port
