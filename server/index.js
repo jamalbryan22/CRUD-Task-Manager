@@ -8,3 +8,5 @@ const port = process.env.PORT || 3008;
 app.listen(port, () => {
   console.log(chalk.blue.inverse(`Listening on port ${port}`));
 });
+
+module.exports = port

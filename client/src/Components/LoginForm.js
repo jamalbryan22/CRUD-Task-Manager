@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import {UserContext } from './contextComponents/UserContext'
+
 
 function LoginForm() {
   const [Username, setUsername] = useState('');
@@ -9,6 +11,8 @@ function LoginForm() {
   const [Age, setAge] = useState('');
   const [LoggingIn, setLoggingIn] = useState(true);
   const [UserData, setUserData] = useState({});
+  const user = useContext(UserContext);
+
 
   let history = useHistory();
 
@@ -31,7 +35,7 @@ function LoginForm() {
         password:Password
       } 
 
-    axios.post('http://localhost:3008/users/login', formData, { withCredentials: true })
+    axios.post(`${user.port}/users/login`, formData, { withCredentials: true })
     .then((res) => {
        (setUserData(res.data.user));
       history.push("/dashboard", {Username, UserData});
@@ -52,7 +56,7 @@ function LoginForm() {
       age:Age
     }
 
-    axios.post('http://localhost:3008/users', formData, { withCredentials: true })
+    axios.post(`${user.port}/users`, formData, { withCredentials: true })
     .then((res) => {      
       (setUserData(res.data.user))
       console.log(res.data);    
