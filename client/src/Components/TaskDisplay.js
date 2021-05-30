@@ -23,9 +23,9 @@ function TaskDisplay() {
   
   let taskStoreCopy = user.taskStore;
 
-  useEffect(() => {
-    console.log(user.taskStore)
-  }, [user.taskStore])
+  // useEffect(() => {
+  //   console.log(user.taskStore)
+  // }, [user.taskStore])
 
   const containerStyle = {
     width:"80%"
@@ -80,7 +80,7 @@ function TaskDisplay() {
     axios.delete(`/tasks/${taskId}`, {withCredentials:true})
   }
 
-  console.log(taskStoreCopy);
+  // console.log(taskStoreCopy);
 
   const tasks = taskStoreCopy.map(task=>
     <div className="taskItem" style={isSmallerScreen ? mobileTaskItemStyle : taskItemStyle}>

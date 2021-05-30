@@ -37,7 +37,7 @@ function LoginForm() {
     .then((res) => {
        (setUserData(res.data.user));
       history.push("/dashboard", {Username, UserData});
-    }).catch(e => alert("There was an error logging in, please verify your credentials"));
+    }).catch(e => alert(e));
     
      
     } else {
