@@ -31,7 +31,7 @@ function NewTaskCard() {
       completed
     }
 
-    axios.post(`/tasks`, task, { withCredentials: true })
+    axios.post("/tasks", task, { withCredentials: true })
     .then((res) => {      
       setDialogTitleText("Congratulations, your task was successfully created");
       setDialogContentText("The secret of getting ahead is getting started. ~ Mark Twain"); 
@@ -40,7 +40,7 @@ function NewTaskCard() {
     })
     .catch(error => {
       if(error.response.status === 401){
-        alert("Your session has timed out. Please logout to back to the home screen to sign back in and authenticate :)")
+        alert("Your session has timed out. Please logout to back to the home screen to sign back in and authenticate.")
       } else {
       console.log(error)
       setDialogTitleText("Oh no, your task was unsuccessfully created");

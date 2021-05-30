@@ -16,7 +16,7 @@ const auth = async (req, res, next) => {
 
     // Throw error if user not found
     if (!user) {
-      throw new Error();
+      throw new Error("User not found");
     }
 
     // Store user data in request object for further manipulation
@@ -26,8 +26,7 @@ const auth = async (req, res, next) => {
     next();
   } catch (error) {
     // Provide data with thrown error
-    res.status(401).send({
-      Error: "Please Authenticate",
+    res.send({
       error
     });
   }

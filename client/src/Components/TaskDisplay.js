@@ -77,7 +77,7 @@ function TaskDisplay() {
 
   const deleteTask = (taskId)=>{
     user.setTaskStore(user.taskStore.filter(task => task._id !== taskId)) 
-    axios.delete(`${user.port}/tasks/${taskId}`, {withCredentials:true})
+    axios.delete(`/tasks/${taskId}`, {withCredentials:true})
   }
 
   console.log(taskStoreCopy);
