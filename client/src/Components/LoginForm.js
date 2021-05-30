@@ -33,7 +33,7 @@ function LoginForm() {
         password:Password
       } 
 
-    axios.post(`http://localhost:${process.env.PORT}/users/login`, formData, { withCredentials: true })
+    axios.post(`/users/login`, formData, { withCredentials: true })
     .then((res) => {
        (setUserData(res.data.user));
       history.push("/dashboard", {Username, UserData});
@@ -54,7 +54,7 @@ function LoginForm() {
       age:Age
     }
 
-    axios.post(`http://localhost:${process.env.PORT}/users`, formData, { withCredentials: true })
+    axios.post(`/users`, formData, { withCredentials: true })
     .then((res) => {      
       (setUserData(res.data.user))
       console.log(res.data);    

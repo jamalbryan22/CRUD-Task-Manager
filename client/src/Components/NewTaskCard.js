@@ -31,7 +31,7 @@ function NewTaskCard() {
       completed
     }
 
-    axios.post(`http://localhost:${process.env.PORT}/tasks`, task, { withCredentials: true })
+    axios.post(`/tasks`, task, { withCredentials: true })
     .then((res) => {      
       setDialogTitleText("Congratulations, your task was successfully created");
       setDialogContentText("The secret of getting ahead is getting started. ~ Mark Twain"); 

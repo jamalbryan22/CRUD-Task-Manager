@@ -14,7 +14,7 @@ function TaskDisplay() {
   const [task, setTask] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:${process.env.PORT}/tasks`, { withCredentials: true })
+    axios.get(`/tasks`, { withCredentials: true })
     .then(res => {
       user.setTaskStore(res.data)
     })
@@ -71,7 +71,7 @@ function TaskDisplay() {
         data.completed = task.completed;
       }
     }
-     axios.patch(`http://localhost:${process.env.PORT}/tasks/${task._id}`,{"completed":task.completed}, {withCredentials:true})
+     axios.patch(`/tasks/${task._id}`,{"completed":task.completed}, {withCredentials:true})
      .then(setTask);
   }
 
