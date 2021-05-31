@@ -137,6 +137,9 @@ router.post("/users/login", async (req, res) => {
     // Search DB for user and return a session token
     const user = await User.findByCredentials(req.body.email, req.body.password);
     const token = await user.generateAuthToken();
+    // Set user and new authorization token 
+    res.cookie("auth_token", token, { maxAge: 900000});
+    res.cookie("user_id", user._id, { maxAge: 900000});
     // Send the user back with the token
     res.send({ user, token });
   } catch (e) {
