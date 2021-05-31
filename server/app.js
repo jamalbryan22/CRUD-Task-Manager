@@ -10,7 +10,7 @@ const app = express();
 
 // Run Middleware
 app.use(cors());
-app.options('*', cors())
+// app.options('*', cors())
 const buildPath = path.join(__dirname, "..", "client", "build");
 app.use(express.static(buildPath));
 app.use(express.json());
