@@ -40,7 +40,7 @@ router.get("/tasks", auth, async (req, res) => {
     sort[parts[0]] = parts[1] === "desc" ? -1 : 1;
   }
   try {
-    // Populate the pseudo task field on the user object
+    // Populate the task field on the user object
     await req.user
       .populate({
         path: "tasks",
