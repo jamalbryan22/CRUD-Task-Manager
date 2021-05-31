@@ -14,9 +14,10 @@ function TaskDisplay() {
   const [task, setTask] = useState({});
 
   useEffect(() => {
-    axios.get("/tasks", { withCredentials: true })
+    axios.get("https://bryan-task-manager.herokuapp.com/tasks", { withCredentials: true })
     .then(res => {
-      // user.setTaskStore(res.data)
+      console.log(`task get: ${res.data}`)
+      user.setTaskStore(res.data)
     })
     .catch(error => console.log(`/tasks Error: ${error}`))
   },[])
