@@ -54,6 +54,7 @@ router.get("/tasks", auth, async (req, res) => {
       .execPopulate();
     res.send(req.user.tasks);
   } catch (error) {
+    console.log("populate error")
     // Throw and necessary errors
     res.status(404).send(error);
   }
