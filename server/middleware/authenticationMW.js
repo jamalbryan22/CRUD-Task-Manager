@@ -26,7 +26,7 @@ const auth = async (req, res, next) => {
     next();
   } catch (error) {
     // Provide data with thrown error
-    res.send({
+    res.status(301).send({
       error
     });
   }
