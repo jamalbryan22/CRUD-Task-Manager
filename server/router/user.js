@@ -31,8 +31,14 @@ router.post("/users", async (req, res) => {
     // Create a token for the new user
     const token = await user.generateAuthToken();
     // Set session cookies
-    res.cookie("auth_token", token, { maxAge: 900000});
-    res.cookie("user_id", user._id, { maxAge: 900000});
+    res.cookie("auth_token", token, { 
+      maxAge: 900000,
+      httpOnly: false
+    });
+    res.cookie("user_id", user._id, { 
+      maxAge: 900000,
+      httpOnly: false
+    });
     // Send the newly created user and new authorization token back
     res.status(201).send({ user, token });
   } catch (error) {
@@ -140,12 +146,12 @@ router.post("/users/login", async (req, res) => {
     // Set user and new authorization token 
     res.cookie("auth_token", token, {
        maxAge: 900000,
-       httpOnly:false
+       httpOnly: false
       });
 
     res.cookie("user_id", user._id, { 
       maxAge: 900000,
-      httpOnly:false
+      httpOnly: false
     });
     // Send the user back with the token
     res.send({ user, token });

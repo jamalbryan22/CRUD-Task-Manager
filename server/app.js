@@ -9,6 +9,9 @@ const taskRouter = require("./router/task");
 // Create server and port
 const app = express();
 
+//Configure CORS use
+app.use(cors())
+
 // Run Middleware
 const buildPath = path.join(__dirname, "..", "client", "build");
 app.use(express.static(buildPath));
