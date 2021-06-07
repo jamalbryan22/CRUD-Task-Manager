@@ -59,7 +59,6 @@ function NewTaskCard() {
     setOpenDialog(false);
   };
 
-
   return (
    <>
     <form onSubmit={formSubmit} className="form">
