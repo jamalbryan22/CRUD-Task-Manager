@@ -14,9 +14,6 @@ const auth = async (req, res, next) => {
       "tokens.token": token
     });
 
-    res.request = req;
-    res.user = user;
-    res.decodedId = decoded._id;
 
     // Throw error if user not found
     if (!user) {
