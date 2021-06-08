@@ -16,7 +16,7 @@ function TaskDisplay() {
   useEffect(() => {
     axios.get("/tasks", { withCredentials: true })
     .then(res => {
-      console.log(res)
+      console.log(`The response: ${res}`)
       // user.setTaskStore(res.data)
     })
     .catch(error => console.log(`/tasks Error:${error} `))
@@ -80,8 +80,6 @@ function TaskDisplay() {
     user.setTaskStore(user.taskStore.filter(task => task._id !== taskId)) 
     axios.delete(`/tasks/${taskId}`, {withCredentials:true})
   }
-
-  // console.log(taskStoreCopy);
 
   const tasks = taskStoreCopy.map(task=>
     <div className="taskItem" style={isSmallerScreen ? mobileTaskItemStyle : taskItemStyle}>
