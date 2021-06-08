@@ -18,7 +18,7 @@ function TaskDisplay() {
     .then(res => {
       user.setTaskStore(res.data)
     })
-    .catch(error => console.log(`/tasks Error:${error} & res:${res}  & res.request:${res.reqest} & res.user:${res.user} & res.decodedId:${res.decodedId}`))
+    .catch((error, res) => console.log(`/tasks Error:${error} & res:${res}  & res.request:${res.reqest} & res.user:${res.user} & res.decodedId:${res.decodedId}`))
   },[])
   
   let taskStoreCopy = user.taskStore;
