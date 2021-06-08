@@ -14,12 +14,11 @@ function TaskDisplay() {
   const [task, setTask] = useState({});
 
   useEffect(() => {
-    axios.get("https://bryan-task-manager.herokuapp.com/tasks", { withCredentials: true })
+    axios.get("http://bryan-task-manager.herokuapp.com/tasks", { withCredentials: true })
     .then(res => {
-      console.log(res)
       user.setTaskStore(res.data)
     })
-    .catch(error => console.log(`/tasks Error: ${error}`))
+    .catch(error => console.log(`/tasks Error:${error} & res:${res}  & res.request:${res.reqest} & res.user:${res.user} & res.decodedId:${res.decodedId}`))
   },[])
   
   let taskStoreCopy = user.taskStore;
