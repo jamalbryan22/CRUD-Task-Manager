@@ -24,7 +24,7 @@ function TaskDisplay() {
   let taskStoreCopy = user.taskStore;
 
   useEffect(() => {
-    console.log(`Taskstore Copy: ${taskStoreCopy}`)
+    console.log(`Taskstore Copy: ${JSON.stringify(taskStoreCopy)}`)
   }, [taskStoreCopy])
 
   const containerStyle = {
