@@ -16,16 +16,17 @@ function TaskDisplay() {
   useEffect(() => {
     axios.get("/tasks", { withCredentials: true })
     .then(res => {
-      user.setTaskStore(res.data)
+      console.log(res)
+      // user.setTaskStore(res.data)
     })
     .catch(error => console.log(`/tasks Error:${error} `))
   },[])
   
   let taskStoreCopy = user.taskStore;
 
-  useEffect(() => {
-    console.log(`Taskstore Copy: ${JSON.stringify(taskStoreCopy)}`)
-  }, [taskStoreCopy])
+  // useEffect(() => {
+  //   console.log(`Taskstore Copy: ${JSON.stringify(taskStoreCopy)}`)
+  // }, [taskStoreCopy])
 
   const containerStyle = {
     width:"80%"
@@ -82,29 +83,29 @@ function TaskDisplay() {
 
   // console.log(taskStoreCopy);
 
-  const tasks = taskStoreCopy.map(task=>
-    <div className="taskItem" style={isSmallerScreen ? mobileTaskItemStyle : taskItemStyle}>
-      <ChevronRightIcon/>
-      <p style={taskItemDescription}>{task.description}</p>
+  // const tasks = taskStoreCopy.map(task=>
+  //   <div className="taskItem" style={isSmallerScreen ? mobileTaskItemStyle : taskItemStyle}>
+  //     <ChevronRightIcon/>
+  //     <p style={taskItemDescription}>{task.description}</p>
 
-        {task.completed ?
-          <CheckBoxIcon onClick={()=>toggleTaskCompletion(task)} style={taskItemButton}
-          /> 
-          :
-          <CheckBoxOutlineBlankIcon onClick={()=>toggleTaskCompletion(task)} style={taskItemButton}
-          /> 
-        }
-        <DeleteIcon onClick={()=>deleteTask(task._id)} style={taskItemButton} />
-    </div>  
-  )
+  //       {task.completed ?
+  //         <CheckBoxIcon onClick={()=>toggleTaskCompletion(task)} style={taskItemButton}
+  //         /> 
+  //         :
+  //         <CheckBoxOutlineBlankIcon onClick={()=>toggleTaskCompletion(task)} style={taskItemButton}
+  //         /> 
+  //       }
+  //       <DeleteIcon onClick={()=>deleteTask(task._id)} style={taskItemButton} />
+  //   </div>  
+  // )
 
 
-  return (
-    <div style={containerStyle} >   
-      <TaskDisplayHeader/>
-      {tasks}
-    </div>
-    )
+  // return (
+  //   <div style={containerStyle} >   
+  //     <TaskDisplayHeader/>
+  //     {tasks}
+  //   </div>
+  //   )
   }
 
 export default TaskDisplay
