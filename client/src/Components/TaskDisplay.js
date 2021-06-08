@@ -16,7 +16,7 @@ function TaskDisplay() {
   useEffect(() => {
     axios.get("/tasks", { withCredentials: true })
     .then(res => {
-      console.log(`The response: ${res}`)
+      console.log(`The response: ${JSON.stringify(res)}`)
       // user.setTaskStore(res.data)
     })
     .catch(error => console.log(`/tasks Error:${error} `))
