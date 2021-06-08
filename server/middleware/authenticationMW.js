@@ -20,7 +20,7 @@ const auth = async (req, res, next) => {
     }
     // Throw error if user not found
     if (!decoded) {
-      throw new Error("token not found");
+      throw new Error("decoded not found");
     }
     // Throw error if user not found
     if (!req) {
@@ -39,7 +39,7 @@ const auth = async (req, res, next) => {
     next();
   } catch (error) {
     // Provide data with thrown error
-    res.status(301).send(error);
+    res.send(error);
   }
 };
 
