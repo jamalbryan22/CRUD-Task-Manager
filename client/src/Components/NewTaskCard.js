@@ -41,14 +41,13 @@ function NewTaskCard() {
     .catch(error => {
       if(error.response.status === 401){
         alert("Your session has timed out. Please logout to back to the home screen to sign back in and authenticate.")
-      } else {
+      }
       console.log(error)
       setDialogTitleText("Oh no, your task was unsuccessfully created");
       setDialogContentText("Check the browser console for further errors"); 
       handleDialogOpen();
       }
-    });
-
+    );
   }
 
   const handleDialogOpen = () => {

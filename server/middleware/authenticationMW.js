@@ -14,19 +14,7 @@ const auth = async (req, res, next) => {
       "tokens.token": token
     });
 
-    // Throw error if user not found
-    if (!token) {
-      throw new Error("token not found");
-    }
-    // Throw error if user not found
-    if (!decoded) {
-      throw new Error("decoded not found");
-    }
-    // Throw error if user not found
-    if (!req) {
-      throw new Error(`${req}`);
-    }
-
+    
     // Throw error if user not found
     if (!user) {
       throw new Error("User not found");
