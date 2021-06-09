@@ -14,11 +14,11 @@ function LoginForm() {
 
   let history = useHistory();
 
-  const signingUp = (e) => {
+  const signingUp = () => {
     setLoggingIn(false);
   }
 
-  const loggingIn = (e) => {
+  const loggingIn = () => {
     setLoggingIn(true);
   }
 
@@ -33,7 +33,7 @@ function LoginForm() {
         password:Password
       } 
 
-    axios.post(`/users/login`, formData, { withCredentials: true })
+    axios.post("/users/login", formData, { withCredentials: true })
     .then((res) => {
        (setUserData(res.data.user));
       history.push("/dashboard", {Username, UserData});
@@ -54,7 +54,7 @@ function LoginForm() {
       age:Age
     }
 
-    axios.post(`/users`, formData, { withCredentials: true })
+    axios.post("/users", formData, { withCredentials: true })
     .then((res) => {      
       (setUserData(res.data.user))
       console.log(res.data);    
