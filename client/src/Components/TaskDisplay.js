@@ -101,7 +101,7 @@ function TaskDisplay() {
   return (
     <div style={containerStyle} >   
       <TaskDisplayHeader/>
-      {/* {tasks} */}
+      {tasks}
     </div>
     )
   }
