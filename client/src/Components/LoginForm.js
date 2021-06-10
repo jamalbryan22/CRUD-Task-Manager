@@ -23,11 +23,14 @@ function LoginForm() {
   }
 
   let formSubmit = async (e) => {
-    
+    // clear any persisting tokens
+    document.cookie = "auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     e.preventDefault();
     let formData = {};
     
     if(LoggingIn) {
+
       formData = {
         email:Email,
         password:Password
